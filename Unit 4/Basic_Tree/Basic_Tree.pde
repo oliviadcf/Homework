@@ -39,6 +39,8 @@ void drawTree(int depth) {
     rotate(radians(45));
     stroke( 0, 255, 0); //gree 
     line ( 0, 0, 100, 0); //draw along the a-xis 
+    translate(100,0); //translate to end of branch 
+    drawTree(depth - 1); 
     popMatrix();
   }
 }
