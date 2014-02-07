@@ -27,7 +27,7 @@ void drawTree(int depth) {
 
     //draw left branch
     pushMatrix();
-    rotate(radians(-45));
+    rotate(radians(-10));
     stroke( 255, 0, 0); //red
     line ( 0, 0, 100, 0); //draw along the a-xis 
     translate(100,0); //translate to end of branch 
@@ -36,8 +36,26 @@ void drawTree(int depth) {
 
     //draw right branch
     pushMatrix();
-    rotate(radians(45));
-    stroke( 0, 255, 0); //gree 
+    rotate(radians(10));
+    stroke( 0, 255, 0); //green 
+    line ( 0, 0, 100, 0); //draw along the a-xis 
+    translate(100,0); //translate to end of branch 
+    drawTree(depth - 1); 
+    popMatrix();
+    
+     //draw left branch
+    pushMatrix();
+    rotate(radians(-25));
+    stroke( 255, 0, 0); //red
+    line ( 0, 0, 100, 0); //draw along the a-xis 
+    translate(100,0); //translate to end of branch 
+    drawTree(depth - 1); 
+    popMatrix();
+    
+    //draw right branch
+    pushMatrix();
+    rotate(radians(25));
+    stroke( 0, 255, 0); //green 
     line ( 0, 0, 100, 0); //draw along the a-xis 
     translate(100,0); //translate to end of branch 
     drawTree(depth - 1); 
