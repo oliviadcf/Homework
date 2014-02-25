@@ -52,6 +52,7 @@ void drawTreeRight(int depth) {
     popMatrix();
     stroke(23, 93, 32);
 
+    
     //draw right branch 
     pushMatrix();
     rotate (radians(28));
