@@ -22,8 +22,16 @@ void setup() {
   // Set text size
   textSize(24);
   
-  //Skiw diwb tge refresg rate 
+  //Slow down to refresh rate 
   frameRate(1); 
+  
+  //Create the string dictionary object 
+  //"Using the StringDict class, create a new StringDict object, names 'rules'"
+  rules = new StringDict(); 
+  
+  //Add rules (key-value pairs) 
+  //         key     value
+  rules.set("F", "F-F");
   
     
 }
@@ -42,11 +50,22 @@ void draw() {
   //Show what fram is being displayed 
   text("Current frame is: " + frameCount, 0, 200); 
   
-  //Take each character from the axiom and copy it to the new word
-  word += axiom.charAt(frameCount - 1);
+  //Check each character - if it matches a rule, replace it 
+  if ( axiom.charAt(frameCount - 1) == 'F')  {
+    //replace
+    word += rules.get("F"); 
+  } else {
+    //copy the character directly 
+    word += axiom.charAt(frameCount - 1);
+  }
   
   //Print the new word
   text("Current word is: " + word, 0, 300); 
+  
+  //Stop before we go out of bounds... past the end of the string
+  if (frameCount == axiom.length() ) {
+   noLoop();   
+  }
 
   
 }
